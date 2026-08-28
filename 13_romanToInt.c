@@ -10,6 +10,13 @@ int romanToInt(char* s) {
         I can be placed before V (5) and X (10) to make 4 and 9. 
         X can be placed before L (50) and C (100) to make 40 and 90. 
         C can be placed before D (500) and M (1000) to make 400 and 900.
+
+        IV - 4
+        IX - 9
+        XL - 40 
+        XC - 90
+        CD - 400
+        CM - 900
     */
 
     int sum = 0; 
@@ -20,7 +27,12 @@ int romanToInt(char* s) {
         // update sum based on letter
         char numeral = s[i];
         if (numeral == 'I') {
-            sum += 1;
+            if (s[i + 1] == 'V') {
+                sum += 1;
+            }
+            else {
+                sum += 1;
+            }
         }
         else if (numeral == 'V') {
             sum += 5;
@@ -46,6 +58,6 @@ int romanToInt(char* s) {
 }
 
 int main(void) {
-    romanToInt("XXVII");
+    romanToInt("MCMXCIV");
     return 0;
 }
